@@ -1,0 +1,19 @@
+<div>
+    <button>ny vits</button>
+    <p id="resultat"></p>
+</div>
+<script>
+    let resultatEl=document.querySelector("#resultat");
+    let knappEl=document.querySelector("button")
+    knappEl=addEventListener("click", vits)
+    function vits(){
+        async function getJoke() {
+        const data = await fetch('https://api.chucknorris.io/jokes/random')
+        const json =await data.json();
+        joke=json.value
+       resultatEl.innerHTML="dagens vits:  "+joke
+    }
+    getJoke();
+
+}
+</script>
